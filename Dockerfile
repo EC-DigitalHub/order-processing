@@ -42,7 +42,7 @@ COPY . .
 RUN echo "APP_NAME=Laravel\n\
 APP_ENV=production\n\
 APP_KEY=\n\
-APP_DEBUG=false\n\
+APP_DEBUG=true\n\
 APP_URL=http://localhost\n\
 LOG_CHANNEL=stack\n\
 LOG_DEPRECATIONS_CHANNEL=null\n\
@@ -66,6 +66,8 @@ RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 # Generate application key
 RUN php artisan key:generate --force
 
+# We don't run migrations here to avoid database issues during build
+
 # Install JS dependencies via npm/yarn
 RUN npm install && npm run build
 
@@ -76,11 +78,27 @@ RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cac
 # Enable Apache modules
 RUN a2enmod rewrite headers
 
+# Configure PHP with higher memory limits and longer execution time
+RUN echo "memory_limit=256M\n\
+upload_max_filesize=64M\n\
+post_max_size=64M\n\
+max_execution_time=300" > /usr/local/etc/php/conf.d/custom.ini
+
 # Configure PHP
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
 # Expose port
 EXPOSE 80
 
-# Start Apache
-CMD ["apache2-foreground"]
+# Startup script to ensure proper connection
+RUN echo '#!/bin/bash\n\
+echo "Waiting for database connection..."\n\
+sleep 10\n\
+php artisan config:cache\n\
+php artisan route:cache\n\
+php artisan view:cache\n\
+apache2-foreground' > /usr/local/bin/startup.sh && \
+chmod +x /usr/local/bin/startup.sh
+
+# Start Apache with our startup script
+CMD ["/usr/local/bin/startup.sh"]
