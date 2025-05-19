@@ -38,14 +38,33 @@ COPY composer.json composer.lock ./
 # Copy Laravel files into the container
 COPY . .
 
-# Create .env file if it doesn't exist
-RUN if [ ! -f .env ]; then cp .env.example .env || echo "APP_NAME=Laravel\nAPP_ENV=production\nAPP_KEY=\nAPP_DEBUG=false\nAPP_URL=http://localhost\nDB_CONNECTION=mysql" > .env; fi
+# Create .env file with required settings
+RUN echo "APP_NAME=Laravel\n\
+APP_ENV=production\n\
+APP_KEY=\n\
+APP_DEBUG=false\n\
+APP_URL=http://localhost\n\
+LOG_CHANNEL=stack\n\
+LOG_DEPRECATIONS_CHANNEL=null\n\
+LOG_LEVEL=debug\n\
+DB_CONNECTION=mysql\n\
+DB_HOST=nowk4scs88k0g0w8wck88gsc\n\
+DB_PORT=3306\n\
+DB_DATABASE=default\n\
+DB_USERNAME=divinecare_user\n\
+DB_PASSWORD=Wy2tD4dlmD6hFbKjQQBWHfuIY45PXjQvCDc750Hs5x14oRfTtF3qqs4j0dUIr5w8\n\
+SESSION_DRIVER=file\n\
+BROADCAST_DRIVER=log\n\
+CACHE_DRIVER=file\n\
+FILESYSTEM_DISK=local\n\
+QUEUE_CONNECTION=sync\n\
+SESSION_LIFETIME=120" > .env
 
 # Install PHP dependencies via Composer
 RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 
 # Generate application key
-RUN php artisan key:generate
+RUN php artisan key:generate --force
 
 # Install JS dependencies via npm/yarn
 RUN npm install && npm run build
