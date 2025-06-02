@@ -8,40 +8,40 @@
 
 @section('content')
 <div class="col-xxl">
-    <div class="card mb-6">
+    <div class="card mb-6 mt-0">
         <div class="d-flex justify-content-between align-items-center mt-4 mb-3 px-4">
-            <h4 class="mb-0">Order List</h4>
-            <a href="{{ route('order.create') }}" class="btn btn-primary mb-3">Add Order</a>
+            <h4 class="mb-0" style="color: #003366; font-weight: bold;">Order List</h4>
+            <a href="{{ route('order.create') }}" class="btn btn-primary mb-0">Add Order</a>
         </div>
 @csrf
 
-<table class="table table-bordered">
+<table class="table table-bordered custom-table" style="margin-left: 10px; width: 98% !important; margin-bottom: 10px;">
         <thead>
-            <tr>
+            <tr style="background-color: #e6f2ff; color: #007acc; font-weight: bold;">
                 @if(auth()->user()->role->name === 'admin')
-                    <th>User</th>
+                    <th width="15" style="color: #007acc; font-weight: bold;">User</th>
                 @endif
-                <th width="20%">Order Number</th>
-                <th width="20%">Order Date</th>
-                <th width="10%">Total Amount</th> 
-                <th width="10%">Payment Method</th>
-                <th width="10%">Status</th>
-                <th width="15%">Delivery Date</th>
-                <th width="15%">Actions</th>
+                <th width="15%" style="color: #007acc; font-weight: bold;">Order Number</th>
+                <th width="10%" style="color: #007acc; font-weight: bold;">Order Date</th>
+                <th width="10%" style="color: #007acc; font-weight: bold;">Total Amount</th> 
+                <th width="10%" style="color: #007acc; font-weight: bold;">Payment Method</th>
+                <th width="10%" style="color: #007acc; font-weight: bold;">Status</th>
+                <th width="15%" style="color: #007acc; font-weight: bold;">Delivery Date</th>
+                <th width="15%" style="color: #007acc; font-weight: bold;">Actions</th>
             </tr>
         </thead>
         <tbody>
             @foreach($orders as $order)
             <tr>
                 @if(auth()->user()->role->name === 'admin')
-                    <td>{{ $order->user_id }}</td>
+                    <td width="15">{{ $order->customer->name }}</td>
                 @endif
-                <td width="20%">{{ $order->order_number }}</td>
-                <td width="20%">{{ $order->order_date }}</td>
+                <td width="15%">{{ $order->order_number }}</td>
+                <td width="10%">{{ $order->order_date }}</td>
                 <td width="10%">{{ $order->total_amount }}</td>
                 <td width="10%">{{ $order->paymentMethod->name ?? 'N/A' }}</td>
                 <td width="10%">{{ $order->status == 1 ? 'Pending' : 'Complete' }}</td>
-                <td width="15%">{{ $order->delivery_date }}</td>
+                <td width="10%">{{ $order->delivery_date }}</td>
                 <td width="15%">
                     <a href="{{ route('order.edit', $order->id) }}" title="Edit" class="me-1"><xi class="bx bx-edit-alt text-warning" style="font-size: 1.2rem;"></xi></a>
                    

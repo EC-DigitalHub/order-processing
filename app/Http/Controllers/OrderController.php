@@ -25,11 +25,11 @@ class OrderController extends Controller
         $role = $user->role->name ?? null;
         $orders = [];
         if ($role === 'admin') {
-            $orders = Order::with('paymentMethod')->get();
+            $orders = Order::with('paymentMethod', 'customer')->get();
         } elseif ($role == 'user') {
-            $orders = Order::with('paymentMethod')->where('user_id', $user->id)->get();
+            $orders = Order::with('paymentMethod', 'customer')->where('user_id', $user->id)->get();
         }
-        $items = $orders;
+        
         $paymentMethods = PaymentMethod::where('status', 1)->get();
 
         $customers = Customer::all();
@@ -170,7 +170,7 @@ class OrderController extends Controller
 
         $user = Auth::user();
         $request->merge([
-            'status' => 1,
+            'status' => 'pending' ? 1 : 0,
             'user_id' =>$user->id,
             'warehouse_id' => session('selected_warehouse_id'),
         ]);

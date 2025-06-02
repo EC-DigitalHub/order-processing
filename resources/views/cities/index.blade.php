@@ -12,18 +12,18 @@
     <div class="card mb-6">
         <div class="card-body">
             <div class="d-flex justify-content-between align-items-center mt-4 mb-3 px-4">
-                <h4 class="mb-0">City List</h4>
+                <h4 class="mb-0" style="color: #003366; font-weight: bold;">City List</h4>
                 <a href="{{ route('cities.create') }}"class="btn btn-primary mt-4 mb-3 px-4">Add City</a>
             </div>
             @csrf
-            <table class="table table-bordered" style="width: 100%;">
+            <table class="table table-bordered custom-table" style="margin-left: 10px; width: 98% !important; margin-bottom: 10px;">
                 <div class="table-responsive">
                     <div class="col-md-6">
-                        <tr>
-                            <th>City Name</th>
-                            <th>Delivery Charge</th>
-                            <th>Status</th>
-                            <th>Actions</th>
+                        <tr style="background-color: #e6f2ff; color: #007acc; font-weight: bold;">
+                            <th style="color: #007acc; font-weight: bold;">City Name</th>
+                            <th style="color: #007acc; font-weight: bold;">Delivery Charge</th>
+                            <th style="color: #007acc; font-weight: bold;">Status</th>
+                            <th style="color: #007acc; font-weight: bold;">Actions</th>
                         </tr>
                        @foreach($cities as $city)
                 <tr>

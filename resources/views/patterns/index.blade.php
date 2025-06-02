@@ -10,21 +10,21 @@
 <div class="col-xxl">
 <div class="card mb-6">
 <div class="d-flex justify-content-between align-items-center mt-4 mb-3 px-4">
-    <h4 class="mb-0">Pattern List</h4>
+    <h4 class="mb-0" style="color: #003366; font-weight: bold;">Pattern List</h4>
     <a href="{{ route('patterns.create') }}" class="btn btn-primary mt-4 mb-3 px-4">Add New Pattern</a>
 </div>
 @csrf
 <br>
-<table class="table mt-3">
+<table class="table table-bordered custom-table" style="margin-left: 10px; width: 98% !important; margin-bottom: 10px;">
 <thead>
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Code</th>
-        <th>Description</th>
-        <th>Base Price</th>
-        <th>Status</th>
-        <th>Action</th>
+    <tr style="background-color: #e6f2ff; color: #007acc; font-weight: bold;">
+        <th style="color: #007acc; font-weight: bold;">ID</th>
+        <th style="color: #007acc; font-weight: bold;">Name</th>
+        <th style="color: #007acc; font-weight: bold;">Code</th>
+        <th style="color: #007acc; font-weight: bold;">Description</th>
+        <th style="color: #007acc; font-weight: bold;">Base Price</th>
+        <th style="color: #007acc; font-weight: bold;">Status</th>
+        <th style="color: #007acc; font-weight: bold;">Action</th>
     </tr>
     </thead>
     <tbody>

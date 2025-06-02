@@ -12,7 +12,7 @@
 
 <form action="{{ route('products.store') }}" method="POST">
 @csrf
-        <h4 class="mb-4">Item Form</h4>
+        <h4 class="mb-4" style="color: #003366; font-weight: bold;">Item Form</h4>
 
         <div class="row mb-3">
             <div class="col-md-6">

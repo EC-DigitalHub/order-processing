@@ -9,7 +9,7 @@
 @section('content')
 <div class="col-xxl">
 <div class="card mb-6">
-<h4 class="mt-5 ms-5 text-start">Create Size</h4>
+<h4 class="mt-5 ms-5 text-start"style="color: #003366; font-weight: bold;">Create Size</h4>
 <form action="{{ route('sizes.store') }}" method="POST">
     @csrf
 

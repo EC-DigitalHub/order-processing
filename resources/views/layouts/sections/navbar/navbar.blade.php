@@ -5,6 +5,11 @@ $containerNav = $containerNav ?? 'container-fluid';
 $navbarDetached = ($navbarDetached ?? '');
 @endphp
 
+<style>
+    .dropdown-toggle:after {
+      margin-left: 0.5em !important;
+    }
+</style>
 <!-- Navbar -->
 <!-- @if(isset($navbarDetached) && $navbarDetached == 'navbar-detached')
 <nav class="layout-navbar {{$containerNav}} navbar navbar-expand-xl {{$navbarDetached}} align-items-center bg-navbar-theme" id="layout-navbar">
@@ -43,7 +48,8 @@ $navbarDetached = ($navbarDetached ?? '');
       </head>
       <body>
 
-      <nav class="navbar navbar-expand-lg navbar-light bg-light mb-12" style="padding-top: 0px;padding-bottom: 0px;background-color: white !important;">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light mb-1" style="padding-top: 0px;padding-bottom: 0px;background-color: white !important;">
+        <img src="{{ asset('assets/img/logo.jpeg') }}" alt="Logo" width= 150px style = "height: 50px; width: 89px; margin-left: 10px";>
         <div class="container-fluid">
           <!-- <a class="navbar-brand" href="#">Navbar</a> -->
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,7 +59,7 @@ $navbarDetached = ($navbarDetached ?? '');
             <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="menu"></ul>
             <form class="d-flex" onsubmit="return false">
               <a href="{{ route('logout') }}" style="display: inline-block; margin: 20px 30px;">
-                <span>LogOut</span>
+                <b><span>LogOut</span></b>
               </a>
             </form>
           </div>
@@ -67,8 +73,8 @@ $navbarDetached = ($navbarDetached ?? '');
           { "url": "/", "name": "Dashboard", "icon": "bx bx-home-smile", "role": ["admin", "user"] },
           { "url": "/order", "name": "Order", "icon": "bx bx-cart", "role": ["admin", "user"] },
           { "url": "#", "name": "Factory Setting", "icon": "bx bx-buildings", "role": ["admin"], "submenu": [
-            { "url": "/warehouses", "name": "Warehouse", "role": ["admin"] },
-            { "url": "/user", "name": "User", "role": ["admin"] },
+            { "url": "/warehouses", "name": "Warehouse Setting", "role": ["admin"] },
+            { "url": "/user", "name": "User Setting", "role": ["admin"] },
             { "url": "/customers", "name": "Customers", "role": ["admin", "customer"] },
             { "url": "/cities", "name": "Cities", "role": ["admin"] }
           ] },
@@ -90,20 +96,20 @@ $navbarDetached = ($navbarDetached ?? '');
             li.className = 'nav-item';
             if (item.submenu) {
               li.className += ' dropdown';
-              const dropdownLink = `<a class="nav-link dropdown-toggle" href="#" id="${item.name.replace(/\s+/g, '')}" data-bs-toggle="dropdown" aria-expanded="false"> <i class="menu-icon tf-icons ${item.icon}"></i> ${item.name}</a>`;
+              const dropdownLink = `<a class="nav-link dropdown-toggle" href="#" id="${item.name.replace(/\s+/g, '')}" data-bs-toggle="dropdown" aria-expanded="false"> <i class="menu-icon tf-icons ${item.icon}" style="margin-top: -7px; margin-right: 1px; color: #007acc; font-weight: 500;"></i><b style="color: black;">${item.name}</b></a>`;
               li.innerHTML = dropdownLink;
               const dropdownMenu = document.createElement('ul');
               dropdownMenu.className = 'dropdown-menu';
               item.submenu.forEach(sub => {
                 if (sub.role.includes(userRole)) {
                   const subLi = document.createElement('li');
-                  subLi.innerHTML = `<a class="dropdown-item" href="${sub.url}"> <i class="menu-icon tf-icons ${sub.icon}"></i> ${sub.name}</a>`;
+                  subLi.innerHTML = `<a class="dropdown-item" href="${sub.url}"> <i class="menu-icon tf-icons ${sub.icon}" style="margin-top: -7px; margin-right: 1px; color: #007acc; font-weight: 500;"></i><b style="color: black;">${sub.name}</b></a>`;
                   dropdownMenu.appendChild(subLi);
                 }
               });
               li.appendChild(dropdownMenu);
             } else {
-              li.innerHTML = `<a class="nav-link" href="${item.url}"> <i class="menu-icon tf-icons ${item.icon}"></i>${item.name}</a>`;
+              li.innerHTML = `<a class="nav-link" href="${item.url}"> <i class="menu-icon tf-icons ${item.icon}" style="margin-top: -7px; margin-right: 1px; color: #007acc; font-weight: 500;"></i><b style="color: black;">${item.name}</b></a>`;
             }
             menu.appendChild(li);
           }

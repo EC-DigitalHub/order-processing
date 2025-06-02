@@ -9,7 +9,7 @@
 @section('content')
 <div class="col-xxl">
 <div class="card mb-6">
-<h4 class="mt-5 ms-5 text-start">Create Pattern</h4>
+<h4 class="mt-5 ms-5 text-start" style="color: #003366; font-weight: bold;">Create Pattern</h4>
 <form action="{{ route('patterns.store') }}" method="POST">
     @csrf
 

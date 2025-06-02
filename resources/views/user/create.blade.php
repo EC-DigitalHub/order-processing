@@ -10,7 +10,7 @@
 
 <div class="col-xxl">
     <div class="card mb-6">
-        <h5 class="mt-5 ms-5 text-start">Create Users</h5>
+        <h5 class="mt-5 ms-5 text-start" style="color: #003366; font-weight: bold;">Create Users</h5>
         <div class="card-body">
             <form method="POST" action="{{ route('user.store') }}">
                 @csrf

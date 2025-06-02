@@ -10,20 +10,20 @@
 <div class="col-xxl">
 <div class="card mb-6">
 <div class="d-flex justify-content-between align-items-center mt-4 mb-3 px-4">
-    <h4 class="mb-0">Embroidery List</h4>
+    <h4 class="mb-0" style="color: #003366; font-weight: bold;">Embroidery List</h4>
     <a href="{{ route('embroideries.create') }}" class="btn btn-primary mt-4 mb-3 px-4">Add Embroidery</a>
 </div>
 @csrf
 <br>
-<table class="table mt-3">
+<table class="table table-bordered custom-table" style="margin-left: 10px; width: 98% !important; margin-bottom: 10px;">
 <thead>
-    <tr>
-            <th>id</th>
-            <th>Embroidery Name</th>
-            <th>Additional Cost</th>
-            <th>Base Price</th>
-            <th>Status</th>
-            <th>Action</th>
+    <tr style="background-color: #e6f2ff; color: #007acc; font-weight: bold;">
+            <th style="color: #007acc; font-weight: bold;">id</th>
+            <th style="color: #007acc; font-weight: bold;">Embroidery Name</th>
+            <th style="color: #007acc; font-weight: bold;">Additional Cost</th>
+            <th style="color: #007acc; font-weight: bold;">Base Price</th>
+            <th style="color: #007acc; font-weight: bold;">Status</th>
+            <th style="color: #007acc; font-weight: bold;">Action</th>
     </tr>
     </thead>
     <tbody>

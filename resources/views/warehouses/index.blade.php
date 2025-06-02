@@ -10,19 +10,19 @@
 <div class="col-xxl">
     <div class="card mb-6">
      <div class="d-flex justify-content-between align-items-center mt-4 mb-3 px-4">
-        <h4 class="mt-5 ms-5 text-start">Create Warehouse</h4>
+        <h4 class="mt-5 mb-5 text-start" style="color: #003366; font-weight: bold;">Create Warehouse</h4>
         <a href="{{ route('warehouses.create') }}" class="btn btn-primary mt-4 mb-3 px-4">Add Warehouse</a>
     </div>
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
     @endif
 
-    <table class="table table-bordered">
+    <table class="table table-bordered" style="margin-left: 10px; width: 98% !important; margin-bottom: 10px;">
         <thead>
-            <tr>
-                <th>Name</th>
-                <th>Code</th>
-                <th>Actions</th>
+            <tr style="background-color: #e6f2ff; color: #007acc; font-weight: bold;">
+                <th style="color: #007acc; font-weight: bold;">Name</th>
+                <th style="color: #007acc; font-weight: bold;">Code</th>
+                <th style="color: #007acc; font-weight: bold;">Actions</th>
             </tr>
         </thead>
         <tbody>

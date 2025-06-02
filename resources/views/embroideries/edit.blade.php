@@ -10,7 +10,7 @@
 
 <div class="col-xxl">
     <div class="card mb-6">
-        <h4 class="mt-5 ms-5 text-start">Edit Embroidery</h4>
+        <h4 class="mt-5 ms-9 text-start" style="color: #003366; font-weight: bold;">Edit Embroidery</h4>
 
         <form action="{{ route('embroideries.update', $embroidery->id) }}" method="POST">   
             @csrf

@@ -9,7 +9,7 @@
 @section('content')
 <div class="col-xxl">
     <div class="card mb-4 p-4">
-    <h4 class="mb-4">Edit Product</h4>
+    <h4 class="mb-4" style="color: #003366; font-weight: bold;">Edit Product</h4>
 
 <form action="{{ route('products.update', $product->id) }}" method="POST">
     @csrf

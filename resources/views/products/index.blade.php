@@ -10,15 +10,15 @@
 <div class="col-xxl">
 <div class="card mb-6">
 <div class="d-flex justify-content-between align-items-center mt-4 mb-3 px-4">
-<h4 class="mb-0">Items List</h4>
+<h4 class="mb-0" style="color: #003366; font-weight: bold;">Items List</h4>
     <a href="{{ route('products.create') }}" class="btn btn-primary mb-3">Add Item</a>
 </div>
-    <table class="table table-bordered">
+    <table class="table table-bordered custom-table" style="margin-left: 10px; width: 98% !important; margin-bottom: 10px;">
         <thead>
-            <tr>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Action</th>
+            <tr style="background-color: #e6f2ff; color: #007acc; font-weight: bold;">
+                <th style="color: #007acc; font-weight: bold;">Name</th>
+                <th style="color: #007acc; font-weight: bold;">Price</th>
+                <th style="color: #007acc; font-weight: bold;">Action</th>
             </tr>
         </thead>
         <tbody>

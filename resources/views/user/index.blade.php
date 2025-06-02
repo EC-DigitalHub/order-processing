@@ -11,20 +11,20 @@
 <div class="col-xxl">
 <div class="card mb-6">
     <div class="card-body">
-    <div class="d-flex justify-content-between align-items-center mt-4 mb-3 px-4">
-    <h4 class="mb-0">All User</h4>
+    <div class="d-flex justify-content-between align-items-center mt-0 mb-1 px-4">
+    <h4 class="mt-5 mb-0" style="color: #003366; font-weight: bold;">All User</h4>
     <a href="{{ route('user.create') }}"class="btn btn-primary mt-4 mb-3 px-4">Add New User</a>
     </div>
     @csrf
-    <table class="table table-bordered">
+    <table class="table table-bordered" style="margin-left: 10px; width: 98% !important; margin-bottom: 10px;">
     <div class="row mb-3">
     <div class="col-md-6">
-        <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Role</th>
-            <th>Status</th>
-            <th>Action</th>
+        <tr style="background-color: #e6f2ff; color: #007acc; font-weight: bold;">
+            <th style="color: #007acc; font-weight: bold;">Name</th>
+            <th style="color: #007acc; font-weight: bold;">Email</th>
+            <th style="color: #007acc; font-weight: bold;">Role</th>
+            <th style="color: #007acc; font-weight: bold;">Status</th>
+            <th style="color: #007acc; font-weight: bold;">Action</th>
         </tr>
         @foreach ($users as $user)
         <tr>

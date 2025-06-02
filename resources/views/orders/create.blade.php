@@ -13,9 +13,9 @@
     
     <form class="row" method="POST" action="{{ route('orders.store') }}">
     
-    <div class="col-8 card mb-6">
+    <div class="col-10 card mb-2">
         <div class="d-flex justify-content-between align-items-center mt-4 mb-3 px-4">
-            <h5 class="mt-4 ms-4">Add New Order</h5>
+            <h5 class="mt-3 mb-3" style="color: #003366; font-weight: bold;">Add New Order</h5>
         </div>
             @csrf
 
@@ -77,8 +77,8 @@
                                 <th style="width: 8%;">Embroidery</th>
                                 <th style="width: 10%;">Price</th>
                                 <th style="width: 10%;">Qty</th>
-                                <th style="width: 1%;">Other Charges</th>
-                                <th style="width: 17%;">Total</th>
+                                <th style="width: 1%;" title="Other Charges">O. Cha.</th>
+                                <th style="width: 9%;">Total Amount</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -131,10 +131,10 @@
                                         @endforeach
                                     </select>
                                 </td>
-                                <td  style="width: 10%;"><input type="text" name="products[0][price]" class="form-control price" readonly></td>
-                                <td style="width: 10%;"><input type="number" name="products[0][quantity]" class="form-control quantity" value="1"></td>
-                                <td style="width: 1%;"><input type="number" name="products[0][other_charges]" class="form-control other_charges" value="0"></td>
-                                <td style="width: 17%;"><input type="text" name="products[0][total_charges]" class="form-control total" readonly></td>
+                                <td  style="width: 10%;"><input type="text" name="products[0][price]" class="form-control price" readonly style="padding: 3px"></td>
+                                <td style="width: 10%;"><input type="number" name="products[0][quantity]" class="form-control quantity" value="1" style="padding: 3px"></td>
+                                <td style="width: 1%;"><input type="number" name="products[0][other_charges]" class="form-control other_charges" value="0" style="padding: 3px"></td>
+                                <td style="width: 9%;"><input type="text" name="products[0][total_charges]" class="form-control total" readonly style="padding: 3px"></td>
                                 
                             </tr>
                             <tr id="details-0" style="display: none;">
@@ -173,10 +173,10 @@
         
     </div>
 
-    <div class="col-4 card ">
+    <div class="col-2 card mb-2">
         {{-- Payment & Delivery --}}
         <div class="card-body px-4 pt-0">
-            <h5 class="mb-3 ms-4 mt-4">Payment & Delivery</h5>
+            <h5 class="mt-8 mb-3" style="color: #003366; font-weight: bold; font-size: 16px;">Payment & Delivery</h5>
             <div class="row">
                 <div class="col-md-12">
                     <label>Payment Method</label>

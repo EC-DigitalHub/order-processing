@@ -9,7 +9,7 @@
 @section('content')
 <div class="col-xxl">
 <div class="card mb-6">
-<h4 class="mt-5 ms-5 text-start">Add Embroidery</h4>
+<h4 class="mt-5 ms-5 text-start" style="color: #003366; font-weight: bold;">Add Embroidery</h4>
 <form action="{{ route('embroideries.store') }}" method="POST">
     @csrf
     

@@ -12,25 +12,25 @@
     <div class="card mb-6">
         <div class="card-body">
             <div class="d-flex justify-content-between align-items-center mt-4 mb-3 px-4">
-                <h4 class="mb-0">All Customer</h4>
+                <h4 class="mb-0 mt-3" style="color: #003366; font-weight: bold;">All Customer</h4>
                 <a href="{{ route('customers.create') }}"class="btn btn-primary mt-4 mb-3 px-4">Add New Customer</a>
             </div>
             @csrf
-            <table class="table table-bordered" style="width: 100%;">
+            <table class="table table-bordered custom-table" style="margin-left: 10px; width: 98% !important; margin-bottom: 10px;">
                 <div class="table-responsive">
                     <div class="col-md-6">
-                        <tr>
-                        <th style="width: 15%;">Name</th>
-                        <th style="width: 15%;">Email</th>
-                        <th style="width: 10%;">Mobile Number</th>
-                        <th style="width: 10%;">City</th>
+                        <tr style="background-color: #e6f2ff; color: #007acc; font-weight: bold;">
+                        <th width="15%;" style="color: #007acc; font-weight: bold;">Name</th>
+                        <th width="15%;" style="color: #007acc; font-weight: bold;">Email</th>
+                        <th width="10%;" style="color: #007acc; font-weight: bold;">Mobile Number</th>
+                        <th width="10%;" style="color: #007acc; font-weight: bold;">City</th>
                             <!-- <th>Country</th>
                             <th>Postal</th> -->
-                        <th style="width: 20%;">Organization</th>
+                        <th width="20%;" style="color: #007acc; font-weight: bold;">Organization</th>
                         <!-- <th style="width: 10%;">Dob</th>
                         <th style="width: 10%;">Anniversary Date</th> -->
-                        <th style="width: 5%;">Status</th>
-                        <th style="width: 5%;">Action</th>
+                        <th width="5%;" style="color: #007acc; font-weight: bold;">Status</th>
+                        <th width="5%;" style="color: #007acc; font-weight: bold;">Action</th>
                         </tr>
                         @foreach ($customers as $customer)
                         <tr>

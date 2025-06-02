@@ -10,7 +10,7 @@
 
 <div class="col-xxl">
     <div class="card mb-6">
-        <h4 class="mt-5 ms-5 text-start">Edit User</h4>
+        <h4 class="mt-8 ms-11 text-start" style="color: #003366; font-weight: bold;">Edit User</h4>
         <div class="card-body">
         <form method="POST" action="{{ route('warehouses.update', $warehouse->id) }}">
         @csrf @method('PUT')
